@@ -9,6 +9,7 @@ public class Camera_Handler : MonoBehaviour
     public GameObject PrePhotoButtons;
     public GameObject PostPhotoButtons;
 
+
     public RawImage Camera_Feed_Image;
     //public AspectRatioFitter aspectRatioFitter;
     public TextMeshProUGUI Photo_message;
