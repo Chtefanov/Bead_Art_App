@@ -7,8 +7,9 @@ public class Gallery_Acces : MonoBehaviour
 {
     //Display of picture
     public RawImage Gallery_Display;
-    public AspectRatioFitter aspectRatioFitter;
-    private Texture2D The_Picture;
+
+    private AspectRatioFitter aspectRatioFitter;
+    private Texture2D Some_Picture_From_Gallery;
     //Initial UI buttons for "Pixelator panel" in context of picture displayed/ not displayed
     public GameObject Select_A_Picture_Button;
     public GameObject Rotate_The_Picture_Button;
@@ -21,8 +22,8 @@ public class Gallery_Acces : MonoBehaviour
             if (path != null)
             {
                 // Creating Texture from selected image
-                The_Picture = NativeGallery.LoadImageAtPath(path, maxSize, false);
-                if (The_Picture == null)
+                Some_Picture_From_Gallery = NativeGallery.LoadImageAtPath(path, maxSize, false);
+                if (Some_Picture_From_Gallery == null)
                 {
                     Debug.Log("Couldn't load texture from " + path);
                     return;
@@ -31,17 +32,17 @@ public class Gallery_Acces : MonoBehaviour
                 // Adjusting the aspect ratio
                 if (aspectRatioFitter != null)
                 {
-                    aspectRatioFitter.aspectRatio = (float)The_Picture.width / The_Picture.height;
+                    aspectRatioFitter.aspectRatio = (float)Some_Picture_From_Gallery.width / Some_Picture_From_Gallery.height;
                 }
 
                 // Assigingn texture to the RawImage component
                 if (Gallery_Display != null)
                 {
-                    Gallery_Display.texture = The_Picture;
+                    Gallery_Display.texture = Some_Picture_From_Gallery;
                 }
                 //If picture is contain wihtin "RawImage" GameComponent.
 
-                if (The_Picture != null)
+                if (Some_Picture_From_Gallery != null)
                 {
                     Select_A_Picture_Button.SetActive(false);
                     Rotate_The_Picture_Button.SetActive(true);
